@@ -14,6 +14,7 @@ eventlet库用法非常简单，可以指定并发访问的url数，框架的最
 ### 测试思路
 基本的测试思路是并发下载同一个页面，计算总耗时和平均耗时，并且统计总返回页面数是否和访问url数相等。
 测试代码如下：
+
 ``` python
 import time
 import eventlet
@@ -50,8 +51,10 @@ if __name__ == '__main__':
     for i in xrange(10, 110, 10):
         fetch(base*i)
 ```
+
 最初使用Google主页进行测试，但由于访问太频繁被Google 503了。而且因为我在美国测试，Google的响应时间太短，于是改用知乎主页进行测试。
 测试结果如下：
+
 ```
 Try 1 urls and get 1 responses. Total 0.9949ms average 0.9949ms
 Try 10 urls and get 10 responses. Total 0.041ms average 0.0041ms
